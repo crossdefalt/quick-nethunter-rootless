@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Install Nethunter
+apt update -y
+apt upgrade -y
 pkg install wget -y
 wget -O install-nethunter-termux https://offs.ec/2MceZWr
 chmod +x install-nethunter-termux
