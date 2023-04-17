@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install Nethunter
+termux-setup-storage
 apt update -y
 apt upgrade -y -o Dpkg::Options::="--force-confold"
 pkg install wget -y
