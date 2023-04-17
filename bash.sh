@@ -2,7 +2,7 @@
 
 # Install Nethunter
 apt update -y
-apt upgrade -y
+apt upgrade -y -o Dpkg::Options::="--force-confold"
 pkg install wget -y
 wget -O install-nethunter-termux https://offs.ec/2MceZWr
 chmod +x install-nethunter-termux
