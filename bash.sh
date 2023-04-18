@@ -11,8 +11,6 @@ chmod +x install-nethunter-termux
   if [[ "$line" == *"[?]"* && "$line" != *"[?][?]"* ]]; then
     read -p "The script has encountered a [?] character. Please type 'y' and press enter to continue, or press any other key to exit: " choice
     if [ "$choice" == "y" ]; then
-      echo "y" >> /tmp/install-nethunter-termux-answers.txt
-    else
       echo " crossdefalt "
       exit 1
     fi
