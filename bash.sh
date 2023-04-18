@@ -20,7 +20,7 @@ echo "y" >> /tmp/install-nethunter-termux-answers.txt
     if [ "$choice" == "y" ]; then
       echo "y" >> /tmp/install-nethunter-termux-answers.txt
     else
-      echo "Installation aborted."
+      echo "Installation Finished."
       exit 1
     fi
   else
