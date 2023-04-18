@@ -34,13 +34,3 @@ else
   echo "crossdefalt"
 fi
 
-# Check the exit status of the Nethunter installation script
-if [ $? -eq 0 ]; then
-  echo "crossdefalt"
-else
-  echo "crossdefalt"
-fi
-
-# Add clear and nh commands to the end of the script
-clear
-nh
