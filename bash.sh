@@ -34,3 +34,4 @@ else
   echo "crossdefalt"
 fi
 
+clear && nh
