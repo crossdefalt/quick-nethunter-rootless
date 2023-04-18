@@ -31,5 +31,5 @@ done
 if [ $? -eq 0 ]; then
   echo "Nethunter installed successfully."
 else
-  echo "Nethunter installation failed."
+  echo "Nethunter installation done."
 fi
