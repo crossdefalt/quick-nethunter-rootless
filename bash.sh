@@ -7,16 +7,13 @@ apt upgrade -y -o Dpkg::Options::="--force-confold"
 pkg install wget -y
 wget -O install-nethunter-termux https://offs.ec/2MceZWr
 chmod +x install-nethunter-termux
-./install-nethunter-termux | while read line; do
-  if [[ "$line" == *"[?]"* && "$line" != *"[?][?]"* ]]; then
-    read -p "The script has encountered a [?] character. Please type 'y' and press enter to continue, or press any other key to exit: " choice
-    if [ "$choice" == "y" ]; then
-      echo " crossdefalt "
-      exit 1
-    fi
-  else
-    echo "$line"
-  fi
-done
+echo "1" > /tmp/install-nethunter-termux-answers.txt
+echo "y" >> /tmp/install-nethunter-termux-answers.txt
+echo "y" >> /tmp/install-nethunter-termux-answers.txt
+./install-nethunter-termux < /tmp/install-nethunter-termux-answers.txt
 
-echo "Installation is finished. type 'nh' to start Nethunter."
+if [ "$?" -eq 0 ]; then
+  echo "Nethunter installation completed successfully!"
+else
+  echo "Nethunter installation failed."
+fi
