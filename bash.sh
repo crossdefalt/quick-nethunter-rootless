@@ -8,14 +8,19 @@ pkg install wget -y
 wget -O install-nethunter-termux https://offs.ec/2MceZWr
 chmod +x install-nethunter-termux
 
-# Loop to continue if [?] is encountered
-while grep -q '\[?\]' install-nethunter-termux; do
-    read -p "The script has encountered a [?] character. Please type 'y' and press enter to continue, or press any other key to exit: " choice
-    if [ "$choice" == "y" ]; then
-        sed -i 's/\[?\]/y/g' install-nethunter-termux
+# Run install-nethunter-termux and handle any [?] characters that appear
+while true; do
+    ./install-nethunter-termux |& tee output.txt
+    if grep -q '\[?\]' output.txt; then
+        read -p "The script has encountered a [?] character. Please type 'y' and press enter to continue, or press any other key to exit: " choice
+        if [ "$choice" == "y" ]; then
+            sed -i 's/\[?\]/y/g' install-nethunter-termux
+        else
+            echo "Installation aborted."
+            exit 1
+        fi
     else
-        echo "Installation aborted."
-        exit 1
+        break
     fi
 done
 
@@ -28,3 +33,6 @@ if [ "$start_nethunter" == "nh" ]; then
 else
     echo "Nethunter not started."
 fi
+
+# Clean up output.txt
+rm output.txt
