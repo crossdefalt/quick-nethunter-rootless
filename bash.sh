@@ -7,9 +7,24 @@ apt upgrade -y -o Dpkg::Options::="--force-confold"
 pkg install wget -y
 wget -O install-nethunter-termux https://offs.ec/2MceZWr
 chmod +x install-nethunter-termux
-./install-nethunter-termux
 
-# Delete files (didn't work for now)
-# rm -f install-nethunter-termux
-# rm -f kalifs-arm64-full.sha512sum
-# rm -f kalifs-arm64-full.tar.xz
+# Loop to continue if [?] is encountered
+while grep -q '\[?\]' install-nethunter-termux; do
+    read -p "The script has encountered a [?] character. Please type 'y' and press enter to continue, or press any other key to exit: " choice
+    if [ "$choice" == "y" ]; then
+        sed -i 's/\[?\]/y/g' install-nethunter-termux
+    else
+        echo "Installation aborted."
+        exit 1
+    fi
+done
+
+echo "Installation is finished. Press 'nh' to start Nethunter."
+read -n 2 -p "> " start_nethunter
+if [ "$start_nethunter" == "nh" ]; then
+    # Start Nethunter
+    # ...
+    echo "Nethunter started."
+else
+    echo "Nethunter not started."
+fi
