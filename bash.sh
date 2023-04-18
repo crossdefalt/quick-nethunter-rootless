@@ -29,7 +29,7 @@ echo "y" >> /tmp/install-nethunter-termux-answers.txt
 done
 
 if [ $? -eq 0 ]; then
-  echo "Nethunter installed successfully."
+  echo "crossdefalt"
 else
-  echo "Nethunter installation done."
+  echo "crossdefalt"
 fi
