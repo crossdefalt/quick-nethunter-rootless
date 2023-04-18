@@ -34,6 +34,3 @@ else
   echo "crossdefalt"
 fi
 
-# Add clear and nh commands to the end of the script 
-clear 
-nh
